@@ -1,33 +1,33 @@
-# Manifest file for Eureka Deployment
+# Manifest file for clothing Deployment
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka-stg
+  name: clothing-stg
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eureka-stg
+      app: clothing-stg
   template:
     metadata:
       labels:
-        app: eureka-stg
+        app: clothing-stg
     spec:
       containers:
-      - name: eureka-stg
+      - name: clothing-stg
         image: DIT
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: eureka-stg-svc
+  name: clothing-stg-svc
 spec:
   selector:
-    app: eureka-stg
+    app: clothing-stg
   type: NodePort
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 8761
+    targetPort: 3000
